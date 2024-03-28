@@ -1,0 +1,224 @@
+.header {
+	padding-block: 13px;
+	padding-inline-start: 20px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	align-items: center;
+}
+.navContainer nav {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	backdrop-filter: blur(40px);
+	top: 0;
+	right: -100%;
+	background: rgba(255, 255, 255, 4%);
+	transition: right 0.2s ease-in-out;
+	overflow: hidden;
+}
+.navContainer {
+	position: fixed;
+	right: 0;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
+	width: clamp(13rem, 35%, 20rem);
+}
+.navContainer nav ul {
+	display: flex;
+	gap: 1.5rem;
+	padding: 6rem 2rem;
+	justify-content: space-evenly;
+	flex-direction: column;
+	font-size: 14px;
+}
+.menuBtn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: fixed;
+	right: 0;
+	margin-right: 10px;
+	z-index: 80;
+}
+.menuBtn img {
+	width: 22px;
+	height: 18px;
+	object-fit: contain;
+}
+.navMobile {
+	position: absolute;
+	right: 0;
+	height: 100vh;
+	top: 0;
+	transition: right 0.2s ease-in-out;
+}
+.navMobile ul {
+	flex-direction: column;
+}
+.navShow {
+	right: 0 !important;
+}
+.top0 {
+	top: 0;
+}
+.logo {
+	object-fit: contain;
+	width: 26px;
+}
+.currentLink::after {
+	content: "";
+	opacity: 1;
+	height: 100%;
+	width: 3px;
+	position: absolute;
+	right: -2rem;
+	top: 0;
+	background: white;
+	transform: scaleY(1.5);
+}
+.header span {
+	font-weight: bold;
+}
+.header li {
+	list-style: none;
+	font-size: clamp(15px, 3vw, 16px);
+	text-transform: uppercase;
+	position: relative;
+}
+@media (min-width: 30em) {
+	.currentLink::after {
+		display: none;
+	}
+	.header {
+		margin: 0;
+		padding-block: 0px;
+	}
+	.menuBtn {
+		display: none;
+	}
+	.logo {
+		margin-left: 1rem;
+	}
+	.header a:hover {
+		opacity: 0.8;
+	}
+	.navContainer {
+		height: auto;
+		width: auto;
+		position: static;
+		z-index: 50 !important;
+		font-size: 14px;
+	}
+	.navContainer nav {
+		background: rgba(255, 255, 255, 0.04);
+		backdrop-filter: blur(40px);
+		position: static;
+		height: auto;
+	}
+	.navContainer nav ul {
+		padding: 0.5rem 2.5rem;
+		flex-direction: row;
+		margin-block: 1.5rem;
+	}
+	.header li {
+		font-size: 14px;
+	}
+	.header li::after {
+		content: "";
+		height: 3px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		background: white;
+		opacity: 0.5;
+		bottom: -2.8rem;
+		transition: bottom 0.2s ease-in-out;
+	}
+	.currentLink::after {
+		display: block;
+		opacity: 1 !important;
+		bottom: -2rem !important;
+		top: auto;
+		transform: scaleY(1);
+	}
+	.header li:hover::after {
+		bottom: -2rem;
+	}
+}
+
+@media (min-width: 50em) {
+	.logo {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+	.header {
+		padding: 1.5rem 0 0 2rem;
+	}
+	.navContainer {
+		width: 65%;
+	}
+	.navContainer nav {
+		background: none;
+		padding: 3px 0;
+	}
+	.navContainer nav ul {
+		padding: 5px;
+	}
+	.header::after {
+		content: "";
+		position: absolute;
+		width: 32%;
+		height: 1px;
+		background: white;
+		top: calc(50% + 0.8rem);
+		left: 7rem;
+		transform: translateY(-50%);
+		z-index: 50;
+		opacity: 0.25;
+	}
+	.header li {
+		font-size: 15px;
+	}
+	.header li::after {
+		bottom: -2.5rem;
+	}
+	.header li:hover::after {
+		bottom: -2rem;
+	}
+	.currentLink::after {
+		bottom: -2rem !important;
+	}
+	.currentLink {
+		color: red;
+	}
+}
+
+@media (min-width: 86em) {
+	.header li {
+		font-size: 20px;
+	}
+	.header {
+		padding-top: 2rem;
+		padding-left: 3.3rem;
+	}
+	.header img {
+		width: auto !important;
+	}
+	.header ul {
+		padding: 1.5rem 0;
+	}
+	.header::after {
+		top: calc(50% + 1.2rem);
+	}
+	.logo {
+		width: 3.7rem;
+		height: 3.7rem;
+		display: grid;
+		place-items: center;
+	}
+	.navContainer {
+		padding: 11px 0;
+	}
+}
